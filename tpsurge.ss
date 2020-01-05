@@ -7,12 +7,12 @@ using SurgeEngine.Vector2;
 
 object "Surge Teleporter" is "companion"
 {
-    player = Player.active;
+    player = parent;
     surge = Player("Surge");
 
     state "main"
     {
-    	if(player.input.buttonDown("fire5")) {
+        if(player.input.buttonDown("fire5")) {
             surge.transform.position = player.transform.position;
             surge.speed = player.speed;
             //surge.direction = player.direction;
@@ -23,6 +23,7 @@ object "Surge Teleporter" is "companion"
                 surge.roll();
             }
         }
+        
     }
 
 }
